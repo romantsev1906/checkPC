@@ -98,3 +98,17 @@ def check_wifi():
 
 # Пример использования
 print(check_wifi())
+
+import platform
+
+def check_system_info():
+    info = {
+        "Операционная система": platform.system(),
+        "Версия ОС": platform.release(),
+        "Архитектура": platform.machine(),
+        "Версия Python": platform.python_version()
+    }
+    return "\n".join([f"{key}: {value}" for key, value in info.items()])
+
+# Пример использования
+print(check_system_info())
