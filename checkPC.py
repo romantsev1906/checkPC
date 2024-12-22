@@ -112,3 +112,27 @@ def check_system_info():
 
 # Пример использования
 print(check_system_info())
+
+import sounddevice as sd
+import numpy as np
+
+def check_speakers():
+    try:
+        # Воспроизводим звук
+        duration = 1  # Длительность звука в секундах
+        frequency = 440  # Частота звука (A4)
+        samplerate = 44100  # Частота дискретизации
+        t = np.linspace(0, duration, int(samplerate * duration), False)
+        audio_data = np.sin(frequency * 2 * np.pi * t)
+        sd.play(audio_data, samplerate)
+        sd.wait()
+        return True
+    except Exception as e:
+        print(f"Ошибка динамиков: {e}")
+        return False
+
+# Пример использования
+if check_speakers():
+    print("Динамики работают")
+else:
+    print("Динамики не работают")
