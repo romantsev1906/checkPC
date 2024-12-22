@@ -136,3 +136,17 @@ if check_speakers():
     print("Динамики работают")
 else:
     print("Динамики не работают")
+
+from plyer import notification
+
+
+def show_notification(title, message):
+    notification.notify(
+        title=title,
+        message=message,
+        timeout=5  # Время отображения уведомления
+    )
+
+
+# Пример использования
+show_notification("Тестирование завершено", "Все устройства работают")
